@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Webview Demo</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="alert_adding_entries_to_db">Adding entries to local database</string>
+</resources>
