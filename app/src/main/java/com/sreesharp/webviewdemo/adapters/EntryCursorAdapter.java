@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.sreesharp.webviewdemo.R;
 
+//Adapter resposible for providing data to the ListView
 public class EntryCursorAdapter extends CursorAdapter {
     public EntryCursorAdapter(Context context, Cursor cursor) {
         super(context, cursor,true);

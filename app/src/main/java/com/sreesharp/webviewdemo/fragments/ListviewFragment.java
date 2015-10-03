@@ -12,7 +12,7 @@ import com.sreesharp.webviewdemo.R;
 import com.sreesharp.webviewdemo.adapters.EntryCursorAdapter;
 import com.sreesharp.webviewdemo.utilities.DbHelper;
 
-
+//Fragment to host the list view to display the entries from local SQLite db
 public class ListviewFragment extends Fragment {
 
     private EntryCursorAdapter entryAdapter;

@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity implements WebviewFragment.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Get the ViewPager and set it's PagerAdapter so that it can display items
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
         FragmentPagerAdapter adapterViewPager  = new DemoPagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(adapterViewPager);

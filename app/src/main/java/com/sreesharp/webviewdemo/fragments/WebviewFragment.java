@@ -1,6 +1,7 @@
 package com.sreesharp.webviewdemo.fragments;
 
 import android.app.Activity;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -13,6 +14,7 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.sreesharp.webviewdemo.R;
@@ -21,22 +23,20 @@ import com.sreesharp.webviewdemo.utilities.DbHelper;
 import com.sreesharp.webviewdemo.utilities.Utility;
 
 
-/**
- * A simple {@link Fragment} subclass.
- */
+//Fragment with webview to load the remote web form
 public class WebviewFragment extends Fragment {
 
     private static final String FORM_URL = "https://dl.dropboxusercontent.com/s/7hqmaeh550bjsf3/test.html?dl=0";
     private static final String OUTLOOK_URL = "outlook://submitValues";
 
     private OnDataChangedListener listener;
+    private ProgressBar progressBar;
+    private WebView webView;
 
     // Define the events that the fragment will use to communicate
     public interface OnDataChangedListener {
         void onDataChanged();
     }
-
-    private WebView webView;
 
     public WebviewFragment() {
         // Required empty public constructor
@@ -47,6 +47,7 @@ public class WebviewFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_webview, container, false);
+        progressBar = (ProgressBar)view.findViewById(R.id.progressBar);
         initializeWebView(view);
         loadWebPage();
         return view;
@@ -63,6 +64,7 @@ public class WebviewFragment extends Fragment {
         }
     }
 
+    //Initialize the webview widget
     private void initializeWebView(View view){
         webView = (WebView) view.findViewById(R.id.webView);
         // Configure related browser settings
@@ -123,6 +125,13 @@ public class WebviewFragment extends Fragment {
         @Override
         public void onPageFinished(WebView view, String url) {
             //TODO: Clean up the web page by manipulating the DOM elements for better user experience
+            progressBar.setVisibility(View.GONE);
+        }
+
+        @Override
+        public void onPageStarted(WebView view, String url, Bitmap favicon) {
+            super.onPageStarted(view, url, favicon);
+            progressBar.setVisibility(View.VISIBLE);
         }
     }
 

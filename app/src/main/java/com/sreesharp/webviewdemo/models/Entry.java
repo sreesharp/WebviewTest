@@ -7,6 +7,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+//Entry model
 public class Entry {
     public String name;
     public String value;

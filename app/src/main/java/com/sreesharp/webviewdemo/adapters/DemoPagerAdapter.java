@@ -7,7 +7,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import com.sreesharp.webviewdemo.fragments.ListviewFragment;
 import com.sreesharp.webviewdemo.fragments.WebviewFragment;
 
-
+//FragmentPagerAdapter for supplying the fragment to view pager hosted in MainActivity
 public class DemoPagerAdapter extends FragmentPagerAdapter {
 
     private final int PAGE_COUNT = 2;
